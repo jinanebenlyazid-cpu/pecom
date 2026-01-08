@@ -1,5 +1,6 @@
 <?php
 
+use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,9 @@ Route::get('/produits/{cat}', function ($cat) {
             ["nom" => "Micro-onde", "prix" => 1000, "image" => "mycrowev.jpg"], 
         ]; 
     } 
+    else{
+        return view('404cat');
+    }
  
     return view('Produits', [ 
         'products' => $produits, 
@@ -39,3 +43,6 @@ Route::get('/produits/{cat}', function ($cat) {
     ]); 
 }); 
 
+Route::fallback(function () { 
+    return view('404'); 
+}); 
