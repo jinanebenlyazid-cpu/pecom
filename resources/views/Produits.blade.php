@@ -22,7 +22,7 @@
                     <td>{{ $item['prix'] }} DH</td>
                     <td>
                         <img 
-                            src="{{ asset('images/' . $item['image']) }}" 
+                            src="images/{{ $item['image'] }}"
                             alt="{{ $item['nom'] }}"
                             class="img-thumbnail"
                             style="width: 90px; height: 90px; object-fit: cover;"
