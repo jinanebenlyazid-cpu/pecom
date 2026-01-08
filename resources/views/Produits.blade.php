@@ -21,9 +21,12 @@
                     <td class="fw-semibold">{{ $item['nom'] }}</td>
                     <td>{{ $item['prix'] }} DH.</td>
                     <td>
-                        <img src="{{ asset('images/'.ltrim($item['image'], '/')) }}" alt="{{ $item['nom'] }}" class="img-thumbnail" style="width: 90px; height: 90px; object-fit: cover;">
-                    {{ asset('images/' . $item['image']) }}
-                    </td>
+@php
+  $url = asset('images/'.ltrim($item['image'],'/'));
+  $url = preg_replace('#(?<!:)//+#', '/', $url); 
+@endphp
+
+<img src="{{ $url }}" alt="">                    </td>
                 </tr>
                 @endforeach
             </tbody>
